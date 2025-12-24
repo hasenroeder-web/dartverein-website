@@ -86,7 +86,7 @@
 </header>
 
 <section class="hero">
-  <h1>Willkommen beim Dartverein</h1>
+  <h1>Willkommen beim Dartport-Laage</h1>
   <p>Leidenschaft für Darts, Teamgeist und gesellige Abende – das ist unser Verein.</p>
 </section>
 
