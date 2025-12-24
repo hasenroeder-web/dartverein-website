@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dartverein â€“ Startseite</title>
+  <title>Dartverein – Startseite</title>
   <style>
     :root {
       --bg-dark: #111;
@@ -23,17 +23,91 @@
     }
 
     header {
+  position: relative;
+  min-height: 300px;
   display: flex;
-  flex-direction: column; /* Logo oben, Navigation darunter */
-  align-items: center;     /* alles zentriert */
-  padding: 1.5rem 2rem;
+  align-items: center;
+  justify-content: center;
   background: #000;
   border-bottom: 2px solid var(--accent);
+  overflow: hidden;
+}
+
+/* Wasserzeichen über die ganze Website */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('Logo.jpg') center/contain no-repeat;
+  opacity: 0.04;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Navigation zentral im Logo */
+.top-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 2rem;
+}
+
+.top-nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.top-nav a:hover { color: var(--accent); }
+
+/* Sicherstellen, dass restlicher Content über Wasserzeichen liegt */
+main, section, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Wasserzeichen im Header */
+header::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: urlHero.jpg') center/contain no-repeat;
+  opacity: 0.08; /* Stärke des Wasserzeichens */
+  pointer-events: none;
+}
+
+/* Inhalt über dem Wasserzeichen */
+header > * {
+  position: relative;
+  z-index: 1;
+}
+
+.top-nav {
+  margin-bottom: 1rem;
+}
+
+.top-nav a {
+  color: var(--text-light);
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.top-nav a:hover { color: var(--accent); }
+
+.hero-logo {
+  display: block;
+  max-height: 300px;
+  width: auto;
 }
 
 header img {
-  display: block;
-  max-height: 300px;
+  height: 200px; /* Logo-Größe */
   width: auto;
 }
 
@@ -50,7 +124,7 @@ nav a {
 
 nav a:hover { color: var(--accent); }
 
-
+    header img { height: 50px; }
 
     nav a {
       color: var(--text-light);
@@ -62,7 +136,7 @@ nav a:hover { color: var(--accent); }
     nav a:hover { color: var(--accent); }
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('Logo.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('bilder/hero.jpg') center/cover no-repeat;
       padding: 6rem 2rem;
       text-align: center;
     }
@@ -87,47 +161,49 @@ nav a:hover { color: var(--accent); }
 
     footer { text-align: center; padding: 2rem; background: #000; color: var(--text-muted); margin-top: 3rem; }
 
+    /* Platzhalter-Stil für zukünftige Inhalte */
     .placeholder { text-align: center; color: var(--text-muted); font-style: italic; border: 2px dashed var(--accent); padding: 2rem; border-radius: 8px; }
 
-    
+    /* Ordnerstruktur Hinweis */
+    /* Bilder: bilder/logo.png, bilder/hero.jpg, bilder/team/ für Spielerbilder */
   </style>
 </head>
 <body>
 
 <header>
-  <img src="Hero.jpg" alt="Vereinslogo" />
-  <nav>
+  <nav class="top-nav">
     <a href="#">Start</a>
     <a href="#news">News</a>
     <a href="#team">Team</a>
     <a href="#freunde">Freundesvereine</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
+  <img src="bilder/hero-logo.png" alt="Vereinslogo groß" class="hero-logo" />
 </header>
 
 <section class="hero">
   <h1>Willkommen beim Dartverein</h1>
-  <p>Leidenschaft für Darts, Teamgeist und gesellige Abende - das ist unser Verein.</p>
+  <p>Leidenschaft für Darts, Teamgeist und gesellige Abende – das ist unser Verein.</p>
 </section>
 
 <section id="news">
   <h2>Aktuelle News</h2>
   <div class="cards">
-    <div class="card placeholder">News werden hier spÃ¤ter eingefÃ¼gt.</div>
+    <div class="card placeholder">News werden hier später eingefügt.</div>
   </div>
 </section>
 
 <section id="team">
   <h2>Unsere Spieler</h2>
   <div class="cards">
-    <div class="card placeholder">Spielerprofile werden hier spÃ¤ter eingefÃ¼gt.</div>
+    <div class="card placeholder">Spielerprofile werden hier später eingefügt.</div>
   </div>
 </section>
 
 <section id="freunde">
   <h2>Freundesvereine</h2>
   <div class="cards">
-    <div class="card placeholder">Freundesvereine werden hier spÃ¤ter eingefÃ¼gt.</div>
+    <div class="card placeholder">Freundesvereine werden hier später eingefügt.</div>
   </div>
 </section>
 
@@ -137,7 +213,7 @@ nav a:hover { color: var(--accent); }
 </section>
 
 <footer>
-  <p>Â© 2025 Dartverein â€“ Alle Rechte vorbehalten</p>
+  <p>© 2025 Dartverein – Alle Rechte vorbehalten</p>
 </footer>
 
 </body>
